@@ -1,4 +1,5 @@
 import re
+from nltk.tokenize import sent_tokenize, word_tokenize 
 
 def limpia_donquijote(text):
     # Ponemos un token donde inicia el texto
@@ -20,13 +21,22 @@ def limpia_donquijote(text):
 
 if __name__ == "__main__":
     text = ""
-    with open("datos/DonQuijote.txt", 'rt') as file:
+    with open("datos/DonQuijote.txt", 'rt', \
+              encoding='utf8') as file:
         text = file.read()
     
     text = limpia_donquijote(text)
+    
+    sentences = sent_tokenize(text)
+    words = word_tokenize(text)
+    
+    print("Primeras 5 oraciones:\n", sentences[:5])
+    print("\nPrimeras 20 palabras:\n", words[:20])
 
     with open("datos/output.txt", 'w') as file:
         file.write(text)
+        
+    
 
 
     
