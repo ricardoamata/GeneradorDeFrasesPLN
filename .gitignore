@@ -1,3 +1,7 @@
+__pycache__
 pln-env
 .vscode
-datos/output.txt
+quijote_model.arpa
+quijote_lm.binary
+datos/texto_entrenamiento.txt
+datos/texto_prueba.txt
