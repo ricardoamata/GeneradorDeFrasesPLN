@@ -23,10 +23,9 @@ def limpia_donquijote(text):
 
 def segmenta_texto(texto):
     resultado = ""
-    for linea in texto.split("\n"):
-        for oracion in nltk.sent_tokenize(linea):
-            resultado += ' '.join(nltk.word_tokenize(oracion)).lower() + '\n'
-    resultado = re.sub(r'[,:;\.]', '', resultado)
+    for oracion in nltk.sent_tokenize(texto):
+        resultado += ' '.join(nltk.word_tokenize(oracion)).lower() + '\n'
+    resultado = re.sub(r'[:;,\.]', '', resultado)
     return resultado
 
 def dataset_split(data, train_size=0.8):
